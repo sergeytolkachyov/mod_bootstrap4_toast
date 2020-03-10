@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>Bootstrap4Toast</name>
+	<author>Sergey Tolkachyov</author>
+	<creationDate>2019-10-01</creationDate>
+	<copyright>© 2019 Sergey Tolkachyov.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@web-tolk.ru</authorEmail>
+	<authorUrl>web-tolk.ru</authorUrl>
+	<version>1.0</version>
+	<description>MOD_BS4_TOAST_DESCRIPTION</description>
+	
+	<files>
+		<filename module="mod_bootstrap4_toast">mod_bootstrap4_toast.php</filename>
+		<filename>bootstrap4-toast-shot.jpg</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	
+	<languages>
+		<language tag="ru-RU">language/ru-RU/ru-RU.mod_bootstrap4_toast.ini</language>
+	    <language tag="ru-RU">language/ru-RU/ru-RU.mod_bootstrap4_toast.sys.ini</language>
+	    <language tag="en-GB">language/en-GB/en-GB.mod_bootstrap4_toast.ini</language>
+	    <language tag="en-GB">language/en-GB/en-GB.mod_bootstrap4_toast.sys.ini</language>
+    </languages>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="position" type="list" default="bottom_left" label="MOD_BS4_TOAST_POSITION">
+					<option value="top_left">MOD_BS4_TOAST_POSITION_TOP_LEFT</option>
+					<option value="top_right">MOD_BS4_TOAST_POSITION_TOP_RIGHT</option>
+					<option value="bottom_left">MOD_BS4_TOAST_POSITION_BOTTOM_LEFT</option>
+					<option value="bottom_right">MOD_BS4_TOAST_POSITION_BOTTOM_RIGHT</option>
+					<option value="any_position">MOD_BS4_TOAST_ANY_POSITION</option>
+				</field>
+				<field name="any_position_css" type="text" size="30" label="MOD_BS4_TOAST_ANY_POSITION_LABEL" description="MOD_BS4_TOAST_ANY_POSITION_DESC" showon="position:any_position"/>
+				
+				<field name="position_property"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="fixed"
+                       label="MOD_BS4_TOAST_POSITION_PROPERTY_LABEL"
+                       description="MOD_BS4_TOAST_POSITION_PROPERTY_DESC">
+                    <option value="absolute">Absolute</option>
+                    <option value="fixed">Fixed</option>
+                </field>
+				
+				<field name="show_toast_header"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="MOD_BS4_TOAST_SHOW_TOAST_HEADER"
+                       description="MOD_BS4_TOAST_SHOW_TOAST_HEADER">
+                    <option value="0">JNo</option>
+                    <option value="1">JYes</option>
+                </field>
+				
+				<field
+					name="toast_header_img"
+					type="media"
+					preview="true"
+					label="MOD_BS4_TOAST_HEADER_IMG_LABEL"
+					description="MOD_BS4_TOAST_HEADER_IMG_LABEL"
+					size="30"
+					showon="show_toast_header:1"
+				/>
+				
+				<field
+					name="toast_header_text"
+					type="text"
+					label="MOD_BS4_TOAST_TOAST_DEFAULT_HEADER_TEXT"
+					description="MOD_BS4_TOAST_TOAST_DEFAULT_HEADER_TEXT"
+					size="30"
+					showon="show_toast_header:1"
+				/>
+				<field
+					name="toast_header_text_small"
+					type="text"
+					label="MOD_BS4_TOAST_TOAST_DEFAULT_HEADER_TEXT_SMALL_LABEL"
+					description="MOD_BS4_TOAST_TOAST_DEFAULT_HEADER_TEXT_SMALL"
+					size="30"
+					showon="show_toast_header:1"
+				/>
+				<field
+						name="toast_module_classes"
+						type="text"
+						label="MOD_BS4_TOAST_TOAST_MODULE_CLASSES"
+						description="MOD_BS4_TOAST_TOAST_MODULE_CLASSES_DESC"
+						size="30"
+				/>
+				<field
+						name="toast_module_header_classes"
+						type="text"
+						label="MOD_BS4_TOAST_TOAST_MODULE_HEADER_CLASSES"
+						description="MOD_BS4_TOAST_TOAST_MODULE_HEADER_CLASSES_DESC"
+						size="30"
+				/>
+
+				
+				<field
+					name="toast_main_text"
+					type="editor"
+					filter="safehtml"
+					label="MOD_BS4_TOAST_MAIN_TEXT_LABEL"
+					description="MOD_BS4_TOAST_MAIN_TEXT_DESC"
+
+				/>
+				
+				
+				<field name="toast_autohide"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="true"
+                       label="MOD_BS4_TOAST_AUTOHIDE_LABEL"
+                       description="MOD_BS4_TOAST_AUTOHIDE_DESC">
+                    <option value="false">JNo</option>
+                    <option value="true">JYes</option>
+                </field>
+				<field
+					name="toast_autohide_delay"
+					type="number"
+					label="MOD_BS4_TOAST_AUTOHIDE_DELAY_LABEL"
+					description="MOD_BS4_TOAST_AUTOHIDE_DELAY_DESC"
+					size="30"
+					showon="toast_autohide:true"
+				/>
+				<field
+					name="toast_show_delay"
+					type="number"
+					label="MOD_BS4_TOAST_SHOW_DELAY_LABEL"
+					size="30"
+					min="0"
+				/>
+				<field name="toast_confirmation"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="0"
+                       label="MOD_BS4_TOAST_CONFIRMATION_LABEL"
+                       description="MOD_BS4_TOAST_CONFIRMATION_DESC">
+                    <option value="0">JNo</option>
+                    <option value="1">JYes</option>
+                </field>
+				
+				
+				<field
+					name="toast_confirmation_btn_text"
+					type="text"
+					label="MOD_BS4_TOAST_CONFIRMATION_BTN_TEXT_LABEL"
+					size="30"
+					showon="toast_confirmation:1"
+				/>
+			
+				<field
+					name="mod_bs4_toast_coockie_exp_date"
+					type="text"
+					label="MOD_BS4_TOAST_COOCKIE_EXP_DATE_LABEL"
+					description="MOD_BS4_COOCKIE_EXP_DATE_DESC"
+					size="30"
+					default="365"
+					showon="toast_confirmation:1"
+				/>
+				
+				<field name="mod_bs4_toast_important"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="0"
+                       label="MOD_BS4_TOAST_IMPORTANT_LABEL"
+                       description="MOD_BS4_TOAST_IMPORTANT_DESC">
+                    <option value="0">JNo</option>
+                    <option value="1">JYes</option>
+                </field>
+				<field
+						name="prepare_content"
+						type="radio"
+						label="MOD_BS4_TOAST_PREPARE_CONTENT_LABEL"
+						description="MOD_BS4_TOAST_PREPARE_CONTENT_DESC"
+						class="btn-group btn-group-yesno"
+						default="0"
+						filter="integer"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				
+
+			</fieldset>
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" name="WebTolkUpdateServer">https://web-tolk.ru/get.html?element=mod_bootstrap4_toast</server>
+	</updateservers>
+</extension>
